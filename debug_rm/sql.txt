@@ -1,0 +1,50 @@
+create table test(
+    a int,
+    b float,
+    c char(10),
+    primary key(a)
+);
+
+insert into test values(1, 2, '12');
+insert into test values(2, 3, '13');
+insert into test values(3, 4, '15');
+insert into test values(2, 5, '13');
+select * from test;
+
+select * from test where b<>4;
+select * from test where a>=2;
+select * from test where a>=2 and a<3;
+
+delete from test where a=3;
+insert into test values(3, 8, 'aaaaaa');
+insert into test values(2, 3, '13');
+
+create table test(
+    a int,
+    b int unique,
+    c float,
+    primary key(a)
+);
+
+drop table test;
+
+create table test(
+    a int,
+    b int unique,
+    primary key(a)
+);
+
+insert into test values (1,2);
+insert into test values (2,3);
+insert into test values (3,4);
+insert into test values (4,5);
+
+insert into test values (5,2);
+insert into test values (5,6);
+
+select * from test;
+
+create index bi on test (b);
+select * from test where b<=4;
+
+drop index bi;
